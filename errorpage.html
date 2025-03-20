@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Click with Pop-up</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    background-color: #f0f0f0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#secondScreen {
+    display: none;
+    margin-top: 20px;
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Popup styling */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#closePopup {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <button id="showBtn">Show Second Screen</button>
+    <div id="secondScreen" class="hidden">
+        <h2>This is the Second Screen</h2>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <p>This is the pop-up message!</p>
+            <button id="closePopup">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Get the elements
+const showBtn = document.getElementById('showBtn');
+const secondScreen = document.getElementById('secondScreen');
+const popup = document.getElementById('popup');
+const closePopupBtn = document.getElementById('closePopup');
+
+// Show the second screen when the button is clicked
+showBtn.addEventListener('click', function() {
+    secondScreen.style.display = 'block';  // Show second screen
+
+    // Show the popup after 1 second (1000 milliseconds)
+    setTimeout(function() {
+        popup.style.display = 'flex';  // Show the pop-up
+    }, 1000);
+});
+
+// Close the pop-up when the close button is clicked
+closePopupBtn.addEventListener('click', function() {
+    popup.style.display = 'none';  // Hide the pop-up
+});
+
+    </script>
+</body>
+</html>
